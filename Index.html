@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Avasyu Jain — Game Developer</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #f2f8f1;
+  --white: #ffffff;
+  --grad: linear-gradient(135deg, #00e676 0%, #69ff47 55%, #b2ff59 100%);
+  --grad-soft: linear-gradient(135deg, rgba(0,230,118,0.1) 0%, rgba(178,255,89,0.1) 100%);
+  --text: #0d1f0a;
+  --muted: #4a6644;
+  --faint: #8aab84;
+  --border: #d0eac8;
+  --border-dark: #9ecf94;
+  --shadow: 0 2px 16px rgba(0,180,80,0.08), 0 1px 4px rgba(0,0,0,0.04);
+  --shadow-hover: 0 8px 32px rgba(0,200,90,0.16), 0 2px 8px rgba(0,0,0,0.06);
+}
+
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── HEADER ── */
+header {
+  position: sticky; top: 0; z-index: 100;
+  height: 58px;
+  background: rgba(242,248,241,0.92);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center;
+  justify-content: space-between;
+  padding: 0 3rem;
+}
+.logo {
+  font-size: .95rem; font-weight: 800;
+  letter-spacing: -.025em;
+  color: var(--text); text-decoration: none;
+}
+.logo em {
+  font-style: normal;
+  background: var(--grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+nav { display: flex; align-items: center; gap: 2rem; }
+nav a { font-size: .78rem; font-weight: 500; color: var(--muted); text-decoration: none; transition: color .15s; }
+nav a:hover { color: var(--text); }
+.hire {
+  background: var(--grad);
+  color: #0a1f08; font-size: .73rem; font-weight: 700;
+  padding: .4rem 1.1rem; border-radius: 100px;
+  text-decoration: none;
+  box-shadow: 0 2px 10px rgba(0,230,118,0.28);
+  transition: opacity .15s, transform .15s;
+}
+.hire:hover { opacity: .88; transform: translateY(-1px); }
+
+/* ── HERO ── */
+#hero {
+  padding: 5.5rem 3rem 0;
+  position: relative; overflow: hidden;
+}
+#hero::after {
+  content: '';
+  position: absolute;
+  top: -80px; right: -60px;
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(0,230,118,0.15) 0%, transparent 65%);
+  pointer-events: none;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: .5rem;
+  background: var(--grad-soft);
+  border: 1px solid var(--border-dark);
+  border-radius: 100px;
+  padding: .28rem .85rem;
+  font-size: .7rem; font-weight: 600;
+  color: var(--muted); margin-bottom: 1.8rem;
+}
+.bdot { width: 6px; height: 6px; border-radius: 50%; background: var(--grad); flex-shrink: 0; }
+#hero h1 {
+  font-size: clamp(2.8rem, 6.5vw, 6rem);
+  font-weight: 800;
+  line-height: .96; letter-spacing: -.04em;
+  margin-bottom: 1.2rem; max-width: 720px;
+}
+#hero h1 em {
+  font-style: normal;
+  background: var(--grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+#hero p {
+  font-size: 1rem; line-height: 1.65;
+  color: var(--muted); max-width: 440px;
+  font-weight: 400; margin-bottom: 4.5rem;
+}
+
+/* ── MARQUEE ── */
+.mq-wrap {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: white; overflow: hidden; padding: .7rem 0;
+}
+.mq-track {
+  display: flex; white-space: nowrap;
+  animation: mq 30s linear infinite;
+}
+@keyframes mq { to { transform: translateX(-50%); } }
+.mq-item {
+  padding: 0 1.8rem;
+  font-size: .72rem; font-weight: 600;
+  color: var(--faint); letter-spacing: .02em;
+  display: flex; align-items: center; gap: .55rem; flex-shrink: 0;
+}
+.mq-item::after {
+  content: ''; width: 4px; height: 4px; border-radius: 50%;
+  background: var(--grad); flex-shrink: 0;
+}
+
+/* ── SECTION HEADER ── */
+.sec-hd {
+  padding: 4rem 3rem 1.8rem;
+  display: flex; align-items: center; gap: 1rem;
+}
+.sec-hd h2 { font-size: .95rem; font-weight: 700; letter-spacing: -.01em; }
+.sec-pill {
+  font-size: .62rem; font-weight: 700;
+  background: var(--grad-soft);
+  border: 1px solid var(--border-dark);
+  color: var(--muted);
+  padding: .18rem .6rem; border-radius: 100px;
+}
+
+/* ── FILTER TABS ── */
+.filter-row {
+  padding: 0 3rem 1.5rem;
+  display: flex; gap: .5rem; flex-wrap: wrap;
+}
+.ftab {
+  font-size: .7rem; font-weight: 600;
+  padding: .32rem .9rem; border-radius: 100px;
+  border: 1px solid var(--border);
+  background: white; color: var(--muted);
+  cursor: pointer; transition: all .15s;
+}
+.ftab:hover { border-color: var(--border-dark); color: var(--text); }
+.ftab.active {
+  background: var(--grad); border-color: transparent;
+  color: #0a1f08; box-shadow: 0 2px 8px rgba(0,230,118,0.25);
+}
+
+/* ── VIDEO GRID ── */
+.vgrid {
+  padding: 0 3rem;
+  columns: 3;
+  column-gap: 1.2rem;
+}
+@media (max-width: 1100px) { .vgrid { columns: 2; } }
+@media (max-width: 640px)  { .vgrid { columns: 1; } }
+
+.vc {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  break-inside: avoid;
+  margin-bottom: 1.2rem;
+  box-shadow: var(--shadow);
+  transition: box-shadow .2s, transform .2s;
+  display: inline-block;
+  width: 100%;
+}
+.vc:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-3px);
+}
+.vc.featured { column-span: all; margin-bottom: 1.2rem; }
+
+.vthumb {
+  width: 100%; aspect-ratio: 16/9;
+  background: #e0f2db;
+  position: relative; overflow: hidden;
+}
+.vthumb video {
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+}
+
+.vinfo { padding: .9rem 1.1rem 1rem; }
+.vtitle {
+  font-size: .88rem; font-weight: 700;
+  letter-spacing: -.01em; color: var(--text);
+  margin-bottom: .22rem;
+}
+.vdesc { font-size: .73rem; color: var(--muted); line-height: 1.5; }
+.vtags { display: flex; flex-wrap: wrap; gap: .35rem; margin-top: .55rem; }
+.vtag {
+  font-size: .6rem; font-weight: 600;
+  letter-spacing: .04em;
+  background: var(--grad-soft);
+  border: 1px solid var(--border);
+  color: var(--muted);
+  padding: .15rem .55rem; border-radius: 100px;
+}
+
+/* ── CONTACT ── */
+#contact {
+  margin: 4rem 3rem 0;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 20px; overflow: hidden;
+}
+.ci { display: grid; grid-template-columns: 1fr 1fr; }
+.cl {
+  padding: 2.8rem;
+  background: var(--grad);
+  display: flex; flex-direction: column; gap: 2rem;
+}
+.cl h2 {
+  font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+  font-weight: 800; color: #0a1f08;
+  line-height: 1.1; letter-spacing: -.03em;
+}
+.cl p { font-size: .83rem; color: rgba(13,31,10,.6); line-height: 1.65; }
+.clinks { display: flex; flex-direction: column; gap: .45rem; }
+.clink {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: .65rem .85rem;
+  background: rgba(255,255,255,.38);
+  border-radius: 10px; text-decoration: none;
+  color: #0a1f08; font-size: .78rem; font-weight: 600;
+  transition: background .15s;
+}
+.clink:hover { background: rgba(255,255,255,.6); }
+.clink-arr { opacity: .45; font-size: .7rem; }
+.cr { padding: 2.8rem; }
+.cr h3 { font-size: .92rem; font-weight: 700; margin-bottom: 1.4rem; }
+.cf { display: flex; flex-direction: column; gap: .85rem; }
+.cfl {
+  font-size: .62rem; font-weight: 700; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--muted);
+  display: block; margin-bottom: .28rem;
+}
+.cf input, .cf textarea {
+  width: 100%; background: var(--bg);
+  border: 1px solid var(--border); border-radius: 8px;
+  color: var(--text); padding: .6rem .85rem;
+  font-family: inherit; font-size: .8rem;
+  outline: none; resize: none; transition: border-color .15s;
+}
+.cf input:focus, .cf textarea:focus { border-color: var(--border-dark); }
+.cf input::placeholder, .cf textarea::placeholder { color: #b8d4b4; }
+.cf textarea { min-height: 88px; }
+.cfsend {
+  width: 100%; background: var(--grad); border: none; border-radius: 8px;
+  color: #0a1f08; font-family: inherit; font-size: .78rem; font-weight: 700;
+  padding: .72rem; cursor: pointer; margin-top: .2rem;
+  box-shadow: 0 2px 10px rgba(0,230,118,0.22);
+  transition: opacity .15s;
+}
+.cfsend:hover { opacity: .88; }
+
+/* ── FOOTER ── */
+footer {
+  margin: 2.5rem 3rem 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  display: flex; justify-content: space-between; align-items: center;
+}
+.ftl { font-size: .76rem; font-weight: 600; color: var(--muted); }
+.ftr { font-size: .7rem; color: var(--faint); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 760px) {
+  header { padding: 0 1.5rem; }
+  nav a { display: none; }
+  #hero { padding-left: 1.5rem; padding-right: 1.5rem; }
+  .sec-hd, .filter-row { padding-left: 1.5rem; padding-right: 1.5rem; }
+  .vgrid { padding: 0 1.5rem; columns: 1; }
+  .vc.featured { column-span: unset; }
+  .ci { grid-template-columns: 1fr; }
+  #contact { margin: 3rem 1.5rem 0; }
+  footer { margin: 2rem 1.5rem; flex-direction: column; gap: .5rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a class="logo" href="#">Avasyu <em>Jain</em></a>
+  <nav>
+    <a href="#games">Games</a>
+    <a href="#contact">Contact</a>
+    <a class="hire" href="mailto:avasyujain99@gmail.com">Hire Me</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-badge"><div class="bdot"></div>Available · Unity Game Developer · Open to Work Worldwide</div>
+  <h1>Games that<br><em>move people.</em></h1>
+  <p>3+ years building 2D, 3D and VR experiences in Unity — from mixed reality installations to mobile. Here's my work.</p>
+  <div class="mq-wrap">
+    <div class="mq-track">
+      <span class="mq-item">Unity 3D</span>
+      <span class="mq-item">VR / Mixed Reality</span>
+      <span class="mq-item">Kinect V2</span>
+      <span class="mq-item">RP Lidar</span>
+      <span class="mq-item">WebGL</span>
+      <span class="mq-item">TUIO Projection</span>
+      <span class="mq-item">C# / SOLID</span>
+      <span class="mq-item">Firebase</span>
+      <span class="mq-item">DOTS</span>
+      <span class="mq-item">Mobile · IAP · Ads</span>
+      <span class="mq-item">Unity Analytics</span>
+      <span class="mq-item">Socket.io</span>
+      <span class="mq-item">Unity 3D</span>
+      <span class="mq-item">VR / Mixed Reality</span>
+      <span class="mq-item">Kinect V2</span>
+      <span class="mq-item">RP Lidar</span>
+      <span class="mq-item">WebGL</span>
+      <span class="mq-item">TUIO Projection</span>
+      <span class="mq-item">C# / SOLID</span>
+      <span class="mq-item">Firebase</span>
+      <span class="mq-item">DOTS</span>
+      <span class="mq-item">Mobile · IAP · Ads</span>
+      <span class="mq-item">Unity Analytics</span>
+      <span class="mq-item">Socket.io</span>
+    </div>
+  </div>
+</section>
+
+<!-- GAMES -->
+<div id="games">
+  <div class="sec-hd">
+    <h2>Projects</h2>
+    <span class="sec-pill">15 games</span>
+  </div>
+
+  <div class="filter-row">
+    <button class="ftab active" onclick="filter('all',this)">All</button>
+    <button class="ftab" onclick="filter('vr',this)">VR / MR</button>
+    <button class="ftab" onclick="filter('projection',this)">Projection</button>
+    <button class="ftab" onclick="filter('edtech',this)">Ed Tech</button>
+    <button class="ftab" onclick="filter('casual',this)">Casual</button>
+    <button class="ftab" onclick="filter('public',this)">Public Response</button>
+  </div>
+
+  <div class="vgrid" id="gameGrid">
+
+    <!-- FEATURED — Trampoline game trailer -->
+    <div class="vc featured" data-tag="vr">
+      <div class="vthumb">
+        <video src="https://res.cloudinary.com/dmlfkkvtj/video/upload/v1776289065/Trampoline_Game_Final_Expo_Showcasing_Trailer_le7gee.mp4" controls preload="metadata" poster=""></video>
+      </div>
+      <div class="vinfo">
+        <div class="vtitle">Mixed Reality Trampoline Game</div>
+        <div class="vdesc">Full-body interactive MR experience using Kinect V2 & RP Lidar. Showcased at IAAPI Expo 2025.</div>
+        <div class="vtags"><span class="vtag">VR / MR</span><span class="vtag">Kinect V2</span><span class="vtag">Unity</span></div>
+      </div>
+    </div>
+
+    <!-- Public Response — Users jumping on trampoline -->
+    <div class="vc" data-tag="public">
+      <div class="vthumb">
+        <video src="https://res.cloudinary.com/dmlfkkvtj/video/upload/v1776289320/Kid_12_sihjaq.mp4" controls preload="metadata"></video>
+      </div>
+      <div class="vinfo">
+        <div class="vtitle">Trampoline — Live Public Response</div>
+        <div class="vdesc">Real users jumping and playing the trampoline MR game at IAAPI Expo 2025.</div>
+        <div class="vtags"><span class="vtag">Public Response</span><span class="vtag">Expo 2025</span><span class="vtag">VR / MR</span></div>
+      </div>
+    </div>
+
+    <!-- VR Alien Shooter -->
+    <div class="vc" data-tag="vr">
+      <div class="vthumb">
+        <video src="https://res.cloudinary.com/dmlfkkvtj/video/upload/v1776290369/VR_Alien_Shooter_Game_yudewn.mp4" controls preload="metadata"></video>
+      </div>
+      <div class="vinfo">
+        <div class="vtitle">VR Alien Shooter</div>
+        <div class="vdesc">Immersive VR shooting game with physics-driven alien targets.</div>
+        <div class="vtags"><span class="vtag">VR</span><span class="vtag">Unity</span></div>
+      </div>
+    </div>
+
+    <!-- Beat Sync -->
+    <div class="vc" data-tag="vr">
+      <div class="vthumb">
+        <video src="https://res.cloudinary.com/dmlfkkvtj/video/upload/v1776289066/Beat_Sync_Game_ufgotq.mp4" controls preload="metadata"></video>
+      </div>
+      <div class="vinfo">
+        <div class="vtitle">Beat Sync Game</div>
+        <div class="vdesc">Rhythm-based interactive game built for immersive play.</div>
+        <div class="vtags"><span class="vtag">VR / MR</span><span class="vtag">Unity</span></div>
+      </div>
+    </div>
+
+    <!-- Floor Projection 1 -->
+    <div class="vc" data-tag="projection">
+      <div class="vthumb">
+        <video src="https://res.cloudinary.com/dmlfkkvtj/video/upload/v1776289062/Floor_Projection_Game_zckp7a.mp4" controls preload="metadata"></video>
+      </div>
+      <div class="vinfo">
+        <div class="vtitle">Interactive Floor Projection</div>
+        <div class="vdesc">Floor projection game built with Unity & TUIO for full-body interaction.</div>
+        <div class="vtags"><span class="vtag">Projection</span><span class="vtag">TUIO</span><span class="vtag">Unity</span></div>
+      </div>
+    </div>
+
+    <!-- Vantara Floor Projection -->
+    <div class="vc" data-tag="projection">
+      <div class="vthumb">
+        <video src="https://res.cloudinary.com/dmlfkkvtj/video/upload/v1776289063/Vanatara_Floor_Projection_Video_2_fbpfhf.mp4" controls preload="metadata"></video>
+      </div>
+      <div class="vinfo">
+        <div class="vtitle">Vantara Floor Projection</div>
+        <div class="vdesc">Interactive floor and wall projection installation created for Vantara.</div>
+        <div class="vtags"><span class="vtag">Projection</span><span class="vtag">Unity</span></div>
+      </div>
+    </div>
+
+    <!-- Scanner Game -->
+    <div class="vc" data-tag="projection">
+      <div class="vthumb">
+        <video src="https://res.cloudinary.com/dmlfkkvtj/video/upload/v1776289191/Scanner_Game_p68dj6.mp4" controls preload="metadata"></video>
+      </div>
+      <div class="vinfo">
+        <div class="vtitle">Scanner Game</div>
+        <div class="vdesc">Sensor-driven interactive game with real-time scanning mechanics.</div>
+        <div class="vtags"><span class="vtag">Projection</span><span class="vtag">Unity</span></div>
+      </div>
+    </div>
+
+    <!-- Kid's Library -->
+    <div class="vc" data-tag="edtech">
+      <div class="vthumb">
+        <video src="https://res.cloudinary.com/dmlfkkvtj/video/upload/v1776288847/Kid_s_Library_Kiddopia_Project_hjxyb5.mp4" controls preload="metadata"></video>
+      </div>
+      <div class="vinfo">
+        <div class="vtitle">Kid's Library — Kiddopia</div>
+        <div class="vdesc">Educational kids game shipped on the Kiddopia platform.</div>
+        <div class="vtags"><span class="vtag">Ed Tech</span><span class="vtag">Kiddopia</span><span class="vtag">Unity</span></div>
+      </div>
+    </div>
+
+    <!-- Balloon Pop -->
+    <div class="vc" data-tag="edtech">
+      <div class="vthumb">
+        <video src="https://res.cloudinary.com/dmlfkkvtj/video/upload/v1776288847/Balloon_Pop_Kiddopia_Project_oehl3l.mp4" controls preload="metadata"></video>
+      </div>
+      <div class="vinfo">
+        <div class="vtitle">Balloon Pop — Kiddopia</div>
+        <div class="vdesc">Fun tap-to-pop learning game for kids with live profile updates.</div>
+        <div class="vtags"><span class="vtag">Ed Tech</span><span class="vtag">Kiddopia</span><span class="vtag">Unity</span></div>
+      </div>
+    </div>
+
+    <!-- Kid 12 -->
+    <div class="vc" data-tag="edtech">
+      <div class="vthumb">
+        <video src="https://res.cloudinary.com/dmlfkkvtj/video/upload/v1776289322/Kid_10_udliyq.mp4" controls preload="metadata"></video>
+      </div>
+      <div class="vinfo">
+        <div class="vtitle">Kids Game — Vol. 12</div>
+        <div class="vdesc">Interactive educational experience for kids built in Unity.</div>
+        <div class="vtags"><span class="vtag">Ed Tech</span><span class="vtag">Kiddopia</span><span class="vtag">Unity</span></div>
+      </div>
+    </div>
+
+    <!-- Kid 10 -->
+    <div class="vc" data-tag="edtech">
+      <div class="vthumb">
+        <video src="https://res.cloudinary.com/dmlfkkvtj/video/upload/v1776289322/Kid_10_udliyq.mp4" controls preload="metadata"></video>
+      </div>
+      <div class="vinfo">
+        <div class="vtitle">Kids Game — Vol. 10</div>
+        <div class="vdesc">Playful and engaging educational game for the Kiddopia platform.</div>
+        <div class="vtags"><span class="vtag">Ed Tech</span><span class="vtag">Kiddopia</span><span class="vtag">Unity</span></div>
+      </div>
+    </div>
+
+    <!-- User -->
+    <div class="vc" data-tag="edtech">
+      <div class="vthumb">
+        <video src="https://res.cloudinary.com/dmlfkkvtj/video/upload/v1776289320/User_ky8aa8.mp4" controls preload="metadata"></video>
+      </div>
+      <div class="vinfo">
+        <div class="vtitle">User Experience Game</div>
+        <div class="vdesc">Kid-focused game built around smooth interaction and intuitive UI flow.</div>
+        <div class="vtags"><span class="vtag">Ed Tech</span><span class="vtag">Kiddopia</span><span class="vtag">Unity</span></div>
+      </div>
+    </div>
+
+    <!-- Endless Runner -->
+    <div class="vc" data-tag="casual">
+      <div class="vthumb">
+        <video src="https://res.cloudinary.com/dmlfkkvtj/video/upload/v1776288928/Endless_Runner_Game_yj4xhq.mp4" controls preload="metadata"></video>
+      </div>
+      <div class="vinfo">
+        <div class="vtitle">Endless Runner</div>
+        <div class="vdesc">Fast-paced 3D endless runner with obstacle generation and DOTS optimisation.</div>
+        <div class="vtags"><span class="vtag">Casual</span><span class="vtag">3D</span><span class="vtag">Unity</span></div>
+      </div>
+    </div>
+
+    <!-- 3rd Person Mobile -->
+    <div class="vc" data-tag="casual">
+      <div class="vthumb">
+        <video src="https://res.cloudinary.com/dmlfkkvtj/video/upload/v1776288928/3rd_Person_Mobile_z4wysy.mp4" controls preload="metadata"></video>
+      </div>
+      <div class="vinfo">
+        <div class="vtitle">3rd Person Mobile Game</div>
+        <div class="vdesc">Third-person action game built for mobile with smooth camera controls.</div>
+        <div class="vtags"><span class="vtag">Casual</span><span class="vtag">Mobile</span><span class="vtag">Unity</span></div>
+      </div>
+    </div>
+
+    <!-- Memory Match -->
+    <div class="vc" data-tag="casual">
+      <div class="vthumb">
+        <video src="https://res.cloudinary.com/dmlfkkvtj/video/upload/v1776288933/MemoryMatch_uz3ixd.mp4" controls preload="metadata"></video>
+      </div>
+      <div class="vinfo">
+        <div class="vtitle">Memory Match</div>
+        <div class="vdesc">Classic memory card matching game with polished animations.</div>
+        <div class="vtags"><span class="vtag">Casual</span><span class="vtag">Unity</span></div>
+      </div>
+    </div>
+
+    <!-- The Great Fleece -->
+    <div class="vc" data-tag="casual">
+      <div class="vthumb">
+        <video src="https://res.cloudinary.com/dmlfkkvtj/video/upload/v1776289247/The_Great_fleece_rtjxcx.mp4" controls preload="metadata"></video>
+      </div>
+      <div class="vinfo">
+        <div class="vtitle">The Great Fleece</div>
+        <div class="vdesc">Stealth and strategy casual game built entirely in Unity.</div>
+        <div class="vtags"><span class="vtag">Casual</span><span class="vtag">Unity</span></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="ci">
+    <div class="cl">
+      <div>
+        <h2>Let's build something great.</h2>
+        <p>Open to Unity roles, freelance projects and collaborations.</p>
+      </div>
+      <div class="clinks">
+        <a class="clink" href="mailto:avasyujain99@gmail.com"><span>avasyujain99@gmail.com</span><span class="clink-arr">↗</span></a>
+        <a class="clink" href="tel:+919425319251"><span>+91 94253 19251</span><span class="clink-arr">↗</span></a>
+        <a class="clink" href="https://linkedin.com/in/avasyujain" target="_blank"><span>LinkedIn</span><span class="clink-arr">↗</span></a>
+      </div>
+    </div>
+    <div class="cr">
+      <h3>Send a message</h3>
+      <div class="cf">
+        <div><label class="cfl">Name</label><input type="text" placeholder="Your name"></div>
+        <div><label class="cfl">Email</label><input type="email" placeholder="your@email.com"></div>
+        <div><label class="cfl">Message</label><textarea placeholder="Tell me about your project..."></textarea></div>
+        <button class="cfsend" id="cfsend">Send Message</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="ftl">Avasyu Jain — Unity Game Developer</span>
+  <span class="ftr">© 2026</span>
+</footer>
+
+<script>
+function filter(tag, btn) {
+  document.querySelectorAll('.ftab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('#gameGrid .vc').forEach(c => {
+    c.style.display = (tag === 'all' || c.dataset.tag === tag) ? '' : 'none';
+  });
+}
+
+document.getElementById('cfsend').addEventListener('click', function() {
+  this.textContent = 'Sent ✓';
+  this.style.opacity = '.7';
+  setTimeout(() => { this.textContent = 'Send Message'; this.style.opacity = ''; }, 3000);
+});
+</script>
+</body>
+</html>
