@@ -47,13 +47,6 @@ header {
   letter-spacing: -.025em;
   color: var(--text); text-decoration: none;
 }
-.logo em {
-  font-style: normal;
-  background: var(--grad);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
 nav { display: flex; align-items: center; gap: 2rem; }
 nav a { font-size: .78rem; font-weight: 500; color: var(--muted); text-decoration: none; transition: color .15s; }
 nav a:hover { color: var(--text); }
@@ -302,18 +295,17 @@ footer {
 
 <!-- HEADER -->
 <header>
-  <a class="logo" href="#">Avasyu <em>Jain</em></a>
+  <a class="logo" href="#">Avasyu Jain</a>
   <nav>
     <a href="#games">Games</a>
     <a href="#contact">Contact</a>
-    <a class="hire" href="mailto:avasyujain99@gmail.com">Hire Me</a>
   </nav>
 </header>
 
 <!-- HERO -->
 <section id="hero">
   <div class="hero-badge"><div class="bdot"></div>Available · Unity Game Developer · Open to Work Worldwide</div>
-  <h1>Games that<br><em>move people.</em></h1>
+  <h1>Every platform.<br>Every player.<br><em>One goal — immersion.</em></h1>
   <p>3+ years building 2D, 3D and VR experiences in Unity — from mixed reality installations to mobile. Here's my work.</p>
   <div class="mq-wrap">
     <div class="mq-track">
@@ -349,16 +341,20 @@ footer {
 <div id="games">
   <div class="sec-hd">
     <h2>Projects</h2>
-    <span class="sec-pill">15 games</span>
+    <span class="sec-pill">22 games</span>
   </div>
 
   <div class="filter-row">
     <button class="ftab active" onclick="filter('all',this)">All</button>
+    <button class="ftab" onclick="filter('aa',this)">AA Games</button>
     <button class="ftab" onclick="filter('vr',this)">VR / MR</button>
+    <button class="ftab" onclick="filter('ar',this)">AR</button>
     <button class="ftab" onclick="filter('projection',this)">Projection</button>
+    <button class="ftab" onclick="filter('ai-photobooth',this)">AI Photobooth</button>
     <button class="ftab" onclick="filter('edtech',this)">Ed Tech</button>
     <button class="ftab" onclick="filter('casual',this)">Casual</button>
     <button class="ftab" onclick="filter('public',this)">Public Response</button>
+    <button class="ftab" onclick="filter('misc',this)">Misc</button>
   </div>
 
   <div class="vgrid" id="gameGrid">
@@ -366,7 +362,7 @@ footer {
     <!-- FEATURED — Trampoline game trailer -->
     <div class="vc featured" data-tag="vr">
       <div class="vthumb">
-        <video src="https://res.cloudinary.com/dmlfkkvtj/video/upload/v1776289065/Trampoline_Game_Final_Expo_Showcasing_Trailer_le7gee.mp4" controls preload="metadata" poster=""></video>
+        <video src="https://res.cloudinary.com/dmlfkkvtj/video/upload/v1776289065/Trampoline_Game_Final_Expo_Showcasing_Trailer_le7gee.mp4" controls controlsList="nodownload" preload="metadata"></video>
       </div>
       <div class="vinfo">
         <div class="vtitle">Mixed Reality Trampoline Game</div>
@@ -375,10 +371,22 @@ footer {
       </div>
     </div>
 
-    <!-- Public Response — Users jumping on trampoline -->
+    <!-- Superman Flying -->
+    <div class="vc" data-tag="aa">
+      <div class="vthumb">
+        <video src="https://res.cloudinary.com/dmlfkkvtj/video/upload/v1788484590/Movie_006_da4qea.mp4" controls controlsList="nodownload" preload="metadata"></video>
+      </div>
+      <div class="vinfo">
+        <div class="vtitle">Superman Flying</div>
+        <div class="vdesc">Dynamic third-person superhero flight mechanics, aerodynamic physics, and responsive aerial controls.</div>
+        <div class="vtags"><span class="vtag">AA Games</span><span class="vtag">Flight Mechanics</span><span class="vtag">Unity</span></div>
+      </div>
+    </div>
+
+    <!-- Public Response -->
     <div class="vc" data-tag="public">
       <div class="vthumb">
-        <video src="https://res.cloudinary.com/dmlfkkvtj/video/upload/v1776289320/Kid_12_sihjaq.mp4" controls preload="metadata"></video>
+        <video src="https://res.cloudinary.com/dmlfkkvtj/video/upload/v1776289322/Kid_10_udliyq.mp4" controls controlsList="nodownload" preload="metadata"></video>
       </div>
       <div class="vinfo">
         <div class="vtitle">Trampoline — Live Public Response</div>
@@ -390,7 +398,7 @@ footer {
     <!-- VR Alien Shooter -->
     <div class="vc" data-tag="vr">
       <div class="vthumb">
-        <video src="https://res.cloudinary.com/dmlfkkvtj/video/upload/v1776290369/VR_Alien_Shooter_Game_yudewn.mp4" controls preload="metadata"></video>
+        <video src="https://res.cloudinary.com/dmlfkkvtj/video/upload/v1776290369/VR_Alien_Shooter_Game_yudewn.mp4" controls controlsList="nodownload" preload="metadata"></video>
       </div>
       <div class="vinfo">
         <div class="vtitle">VR Alien Shooter</div>
@@ -402,7 +410,7 @@ footer {
     <!-- Beat Sync -->
     <div class="vc" data-tag="vr">
       <div class="vthumb">
-        <video src="https://res.cloudinary.com/dmlfkkvtj/video/upload/v1776289066/Beat_Sync_Game_ufgotq.mp4" controls preload="metadata"></video>
+        <video src="https://res.cloudinary.com/dmlfkkvtj/video/upload/v1776289066/Beat_Sync_Game_ufgotq.mp4" controls controlsList="nodownload" preload="metadata"></video>
       </div>
       <div class="vinfo">
         <div class="vtitle">Beat Sync Game</div>
@@ -411,10 +419,10 @@ footer {
       </div>
     </div>
 
-    <!-- Floor Projection 1 -->
+    <!-- Floor Projection -->
     <div class="vc" data-tag="projection">
       <div class="vthumb">
-        <video src="https://res.cloudinary.com/dmlfkkvtj/video/upload/v1776289062/Floor_Projection_Game_zckp7a.mp4" controls preload="metadata"></video>
+        <video src="https://res.cloudinary.com/dmlfkkvtj/video/upload/v1776289062/Floor_Projection_Game_zckp7a.mp4" controls controlsList="nodownload" preload="metadata"></video>
       </div>
       <div class="vinfo">
         <div class="vtitle">Interactive Floor Projection</div>
@@ -426,7 +434,7 @@ footer {
     <!-- Vantara Floor Projection -->
     <div class="vc" data-tag="projection">
       <div class="vthumb">
-        <video src="https://res.cloudinary.com/dmlfkkvtj/video/upload/v1776289063/Vanatara_Floor_Projection_Video_2_fbpfhf.mp4" controls preload="metadata"></video>
+        <video src="https://res.cloudinary.com/dmlfkkvtj/video/upload/v1776289063/Vanatara_Floor_Projection_Video_2_fbpfhf.mp4" controls controlsList="nodownload" preload="metadata"></video>
       </div>
       <div class="vinfo">
         <div class="vtitle">Vantara Floor Projection</div>
@@ -435,22 +443,70 @@ footer {
       </div>
     </div>
 
-    <!-- Scanner Game -->
+    <!-- Interactive Tabletop Projection -->
     <div class="vc" data-tag="projection">
       <div class="vthumb">
-        <video src="https://res.cloudinary.com/dmlfkkvtj/video/upload/v1776289191/Scanner_Game_p68dj6.mp4" controls preload="metadata"></video>
+        <video src="https://res.cloudinary.com/dmlfkkvtj/video/upload/v1788485035/WhatsApp_Video_2026-08-25_at_16.49.57_cndhow.mp4" controls controlsList="nodownload" preload="metadata"></video>
+      </div>
+      <div class="vinfo">
+        <div class="vtitle">Interactive Tabletop Projection</div>
+        <div class="vdesc">Touch-interactive tabletop projection for architectural floor plans with 3D room exploration and gesture controls.</div>
+        <div class="vtags"><span class="vtag">Projection</span><span class="vtag">Interactive Table</span><span class="vtag">Unity</span></div>
+      </div>
+    </div>
+
+    <!-- AI Photobooth -->
+    <div class="vc" data-tag="ai-photobooth">
+      <div class="vthumb">
+        <video src="https://res.cloudinary.com/dmlfkkvtj/video/upload/v1788485373/AI_Photobooth_al5fax.mp4" controls controlsList="nodownload" preload="metadata"></video>
+      </div>
+      <div class="vinfo">
+        <div class="vtitle">Interactive AI Photobooth</div>
+        <div class="vdesc">Gesture-controlled interactive photobooth with real-time hand tracking and AI photo transformation for live events.</div>
+        <div class="vtags"><span class="vtag">AI Photobooth</span><span class="vtag">Gesture Tracking</span><span class="vtag">Unity</span></div>
+      </div>
+    </div>
+
+    <!-- 501 Game -->
+    <div class="vc" data-tag="misc">
+      <div class="vthumb">
+        <video src="https://res.cloudinary.com/dmlfkkvtj/video/upload/v1779783324/501_Game_oobd2c.mp4" controls controlsList="nodownload" preload="metadata"></video>
+      </div>
+      <div class="vinfo">
+        <div class="vtitle">501 Game</div>
+        <div class="vdesc">501 scoring game built in Unity.</div>
+        <div class="vtags"><span class="vtag">Misc</span><span class="vtag">Unity</span></div>
+      </div>
+    </div>
+
+    <!-- Darts Game Launcher -->
+    <div class="vc" data-tag="misc">
+      <div class="vthumb">
+        <video src="https://res.cloudinary.com/dmlfkkvtj/video/upload/v1779783391/Darts_game_launcher_qqflum.mp4" controls controlsList="nodownload" preload="metadata"></video>
+      </div>
+      <div class="vinfo">
+        <div class="vtitle">Darts Game Launcher</div>
+        <div class="vdesc">Darts launcher game built in Unity.</div>
+        <div class="vtags"><span class="vtag">Misc</span><span class="vtag">Unity</span></div>
+      </div>
+    </div>
+
+    <!-- Scanner Game -->
+    <div class="vc" data-tag="misc">
+      <div class="vthumb">
+        <video src="https://res.cloudinary.com/dmlfkkvtj/video/upload/v1776289191/Scanner_Game_p68dj6.mp4" controls controlsList="nodownload" preload="metadata"></video>
       </div>
       <div class="vinfo">
         <div class="vtitle">Scanner Game</div>
         <div class="vdesc">Sensor-driven interactive game with real-time scanning mechanics.</div>
-        <div class="vtags"><span class="vtag">Projection</span><span class="vtag">Unity</span></div>
+        <div class="vtags"><span class="vtag">Misc</span><span class="vtag">Unity</span></div>
       </div>
     </div>
 
     <!-- Kid's Library -->
     <div class="vc" data-tag="edtech">
       <div class="vthumb">
-        <video src="https://res.cloudinary.com/dmlfkkvtj/video/upload/v1776288847/Kid_s_Library_Kiddopia_Project_hjxyb5.mp4" controls preload="metadata"></video>
+        <video src="https://res.cloudinary.com/dmlfkkvtj/video/upload/v1776288847/Kid_s_Library_Kiddopia_Project_hjxyb5.mp4" controls controlsList="nodownload" preload="metadata"></video>
       </div>
       <div class="vinfo">
         <div class="vtitle">Kid's Library — Kiddopia</div>
@@ -462,7 +518,7 @@ footer {
     <!-- Balloon Pop -->
     <div class="vc" data-tag="edtech">
       <div class="vthumb">
-        <video src="https://res.cloudinary.com/dmlfkkvtj/video/upload/v1776288847/Balloon_Pop_Kiddopia_Project_oehl3l.mp4" controls preload="metadata"></video>
+        <video src="https://res.cloudinary.com/dmlfkkvtj/video/upload/v1776288847/Balloon_Pop_Kiddopia_Project_oehl3l.mp4" controls controlsList="nodownload" preload="metadata"></video>
       </div>
       <div class="vinfo">
         <div class="vtitle">Balloon Pop — Kiddopia</div>
@@ -471,46 +527,58 @@ footer {
       </div>
     </div>
 
-    <!-- Kid 12 -->
-    <div class="vc" data-tag="edtech">
+    <!-- Public Response 2 -->
+    <div class="vc" data-tag="public">
       <div class="vthumb">
-        <video src="https://res.cloudinary.com/dmlfkkvtj/video/upload/v1776289322/Kid_10_udliyq.mp4" controls preload="metadata"></video>
+        <video src="https://res.cloudinary.com/dmlfkkvtj/video/upload/v1776289320/Kid_12_sihjaq.mp4" controls controlsList="nodownload" preload="metadata"></video>
       </div>
       <div class="vinfo">
-        <div class="vtitle">Kids Game — Vol. 12</div>
-        <div class="vdesc">Interactive educational experience for kids built in Unity.</div>
-        <div class="vtags"><span class="vtag">Ed Tech</span><span class="vtag">Kiddopia</span><span class="vtag">Unity</span></div>
+        <div class="vtitle">Trampoline — Public Response 2</div>
+        <div class="vdesc">More real users experiencing the trampoline MR game at IAAPI Expo 2025.</div>
+        <div class="vtags"><span class="vtag">Public Response</span><span class="vtag">Expo 2025</span><span class="vtag">VR / MR</span></div>
       </div>
     </div>
 
-    <!-- Kid 10 -->
-    <div class="vc" data-tag="edtech">
+    <!-- Public Response 3 -->
+    <div class="vc" data-tag="public">
       <div class="vthumb">
-        <video src="https://res.cloudinary.com/dmlfkkvtj/video/upload/v1776289322/Kid_10_udliyq.mp4" controls preload="metadata"></video>
+        <video src="https://res.cloudinary.com/dmlfkkvtj/video/upload/v1776289320/User_ky8aa8.mp4" controls controlsList="nodownload" preload="metadata"></video>
       </div>
       <div class="vinfo">
-        <div class="vtitle">Kids Game — Vol. 10</div>
-        <div class="vdesc">Playful and engaging educational game for the Kiddopia platform.</div>
-        <div class="vtags"><span class="vtag">Ed Tech</span><span class="vtag">Kiddopia</span><span class="vtag">Unity</span></div>
+        <div class="vtitle">Trampoline — Public Response 3</div>
+        <div class="vdesc">Live crowd interaction with the trampoline MR game at IAAPI Expo 2025.</div>
+        <div class="vtags"><span class="vtag">Public Response</span><span class="vtag">Expo 2025</span><span class="vtag">VR / MR</span></div>
       </div>
     </div>
 
-    <!-- User -->
-    <div class="vc" data-tag="edtech">
+    <!-- AR 3D Object Manipulation -->
+    <div class="vc" data-tag="ar">
       <div class="vthumb">
-        <video src="https://res.cloudinary.com/dmlfkkvtj/video/upload/v1776289320/User_ky8aa8.mp4" controls preload="metadata"></video>
+        <video src="https://res.cloudinary.com/dmlfkkvtj/video/upload/v1779777774/AR_3D_Object_Manipulation_u7kqvk.mp4" controls controlsList="nodownload" preload="metadata"></video>
       </div>
       <div class="vinfo">
-        <div class="vtitle">User Experience Game</div>
-        <div class="vdesc">Kid-focused game built around smooth interaction and intuitive UI flow.</div>
-        <div class="vtags"><span class="vtag">Ed Tech</span><span class="vtag">Kiddopia</span><span class="vtag">Unity</span></div>
+        <div class="vtitle">AR 3D Object Manipulation</div>
+        <div class="vdesc">Augmented reality experience with real-time 3D object interaction.</div>
+        <div class="vtags"><span class="vtag">AR</span><span class="vtag">Unity</span></div>
+      </div>
+    </div>
+
+    <!-- AR Video -->
+    <div class="vc" data-tag="ar">
+      <div class="vthumb">
+        <video src="https://res.cloudinary.com/dmlfkkvtj/video/upload/v1779777773/AR_Video_t8wczj.mp4" controls controlsList="nodownload" preload="metadata"></video>
+      </div>
+      <div class="vinfo">
+        <div class="vtitle">AR Experience</div>
+        <div class="vdesc">Augmented reality game built in Unity.</div>
+        <div class="vtags"><span class="vtag">AR</span><span class="vtag">Unity</span></div>
       </div>
     </div>
 
     <!-- Endless Runner -->
     <div class="vc" data-tag="casual">
       <div class="vthumb">
-        <video src="https://res.cloudinary.com/dmlfkkvtj/video/upload/v1776288928/Endless_Runner_Game_yj4xhq.mp4" controls preload="metadata"></video>
+        <video src="https://res.cloudinary.com/dmlfkkvtj/video/upload/v1776288928/Endless_Runner_Game_yj4xhq.mp4" controls controlsList="nodownload" preload="metadata"></video>
       </div>
       <div class="vinfo">
         <div class="vtitle">Endless Runner</div>
@@ -519,22 +587,22 @@ footer {
       </div>
     </div>
 
-    <!-- 3rd Person Mobile -->
+    <!-- 3rd Person -->
     <div class="vc" data-tag="casual">
       <div class="vthumb">
-        <video src="https://res.cloudinary.com/dmlfkkvtj/video/upload/v1776288928/3rd_Person_Mobile_z4wysy.mp4" controls preload="metadata"></video>
+        <video src="https://res.cloudinary.com/dmlfkkvtj/video/upload/v1776288928/3rd_Person_Mobile_z4wysy.mp4" controls controlsList="nodownload" preload="metadata"></video>
       </div>
       <div class="vinfo">
         <div class="vtitle">3rd Person Mobile Game</div>
         <div class="vdesc">Third-person action game built for mobile with smooth camera controls.</div>
-        <div class="vtags"><span class="vtag">Casual</span><span class="vtag">Mobile</span><span class="vtag">Unity</span></div>
+        <div class="vtags"><span class="vtag">Casual</span><span class="vtag">Unity</span></div>
       </div>
     </div>
 
     <!-- Memory Match -->
     <div class="vc" data-tag="casual">
       <div class="vthumb">
-        <video src="https://res.cloudinary.com/dmlfkkvtj/video/upload/v1776288933/MemoryMatch_uz3ixd.mp4" controls preload="metadata"></video>
+        <video src="https://res.cloudinary.com/dmlfkkvtj/video/upload/v1776288933/MemoryMatch_uz3ixd.mp4" controls controlsList="nodownload" preload="metadata"></video>
       </div>
       <div class="vinfo">
         <div class="vtitle">Memory Match</div>
@@ -546,7 +614,7 @@ footer {
     <!-- The Great Fleece -->
     <div class="vc" data-tag="casual">
       <div class="vthumb">
-        <video src="https://res.cloudinary.com/dmlfkkvtj/video/upload/v1776289247/The_Great_fleece_rtjxcx.mp4" controls preload="metadata"></video>
+        <video src="https://res.cloudinary.com/dmlfkkvtj/video/upload/v1776289247/The_Great_fleece_rtjxcx.mp4" controls controlsList="nodownload" preload="metadata"></video>
       </div>
       <div class="vinfo">
         <div class="vtitle">The Great Fleece</div>
@@ -569,17 +637,17 @@ footer {
       <div class="clinks">
         <a class="clink" href="mailto:avasyujain99@gmail.com"><span>avasyujain99@gmail.com</span><span class="clink-arr">↗</span></a>
         <a class="clink" href="tel:+919425319251"><span>+91 94253 19251</span><span class="clink-arr">↗</span></a>
-        <a class="clink" href="https://linkedin.com/in/avasyujain" target="_blank"><span>LinkedIn</span><span class="clink-arr">↗</span></a>
+        <a class="clink" href="https://www.linkedin.com/in/avasyu-jain-107591230/" target="_blank"><span>LinkedIn</span><span class="clink-arr">↗</span></a>
       </div>
     </div>
     <div class="cr">
       <h3>Send a message</h3>
-      <div class="cf">
-        <div><label class="cfl">Name</label><input type="text" placeholder="Your name"></div>
-        <div><label class="cfl">Email</label><input type="email" placeholder="your@email.com"></div>
-        <div><label class="cfl">Message</label><textarea placeholder="Tell me about your project..."></textarea></div>
-        <button class="cfsend" id="cfsend">Send Message</button>
-      </div>
+      <form class="cf" id="contactForm" action="https://formspree.io/f/mlgagazd" method="POST">
+        <div><label class="cfl">Name</label><input type="text" name="name" placeholder="Your name" required></div>
+        <div><label class="cfl">Email</label><input type="email" name="email" placeholder="your@email.com" required></div>
+        <div><label class="cfl">Message</label><textarea name="message" placeholder="Tell me about your project..." required></textarea></div>
+        <button type="submit" class="cfsend" id="cfsend">Send Message</button>
+      </form>
     </div>
   </div>
 </section>
@@ -590,6 +658,12 @@ footer {
 </footer>
 
 <script>
+document.addEventListener('contextmenu', e => e.preventDefault());
+
+document.addEventListener('keydown', e => {
+  if ((e.ctrlKey || e.metaKey) && ['s','S','u','U'].includes(e.key)) e.preventDefault();
+});
+
 function filter(tag, btn) {
   document.querySelectorAll('.ftab').forEach(t => t.classList.remove('active'));
   btn.classList.add('active');
@@ -598,10 +672,32 @@ function filter(tag, btn) {
   });
 }
 
-document.getElementById('cfsend').addEventListener('click', function() {
-  this.textContent = 'Sent ✓';
-  this.style.opacity = '.7';
-  setTimeout(() => { this.textContent = 'Send Message'; this.style.opacity = ''; }, 3000);
+const form = document.getElementById('contactForm');
+form.addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const btn = document.getElementById('cfsend');
+  btn.textContent = 'Sending...';
+  btn.style.opacity = '.7';
+  const data = new FormData(form);
+  try {
+    const res = await fetch(form.action, {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    });
+    if (res.ok) {
+      btn.textContent = 'Sent ✓';
+      btn.style.background = '#4caf50';
+      form.reset();
+      setTimeout(() => { btn.textContent = 'Send Message'; btn.style.background = ''; btn.style.opacity = ''; }, 4000);
+    } else {
+      btn.textContent = 'Error — try again';
+      btn.style.opacity = '1';
+    }
+  } catch {
+    btn.textContent = 'Error — try again';
+    btn.style.opacity = '1';
+  }
 });
 </script>
 </body>
